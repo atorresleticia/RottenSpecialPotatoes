@@ -1,0 +1,19 @@
+<% provide(:title, @movie.name) %>
+<h1>
+  <%= @movie.name %><br>
+</h1>
+
+<h2>
+	Rating: 
+	<%=@movie.rating %> potatoes <br><br>
+
+	Release date: 
+	<%=@movie.release_date%><br><br>
+
+	Description: 
+	<%=@movie.description%><br><br>
+
+</h2>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>

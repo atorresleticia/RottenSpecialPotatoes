@@ -1,0 +1,42 @@
+<% provide(:title, 'Edit user') %>
+
+<h1>Edit user</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <% if @user.errors.has_key? :name %>
+        <%= @user.errors[:name].first %>
+      <%end%>
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <% if @user.errors.has_key? :email %>
+        <%= @user.errors[:email].first %>
+      <%end%>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <% if @user.errors.has_key? :password %>
+        <%= @user.errors[:password].first %>
+      <%end%>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <% if @user.errors.has_key? :password_confirmation %>
+        <%= @user.errors[:password_confirmation].first %>
+      <%end%>
+
+      <%= f.submit "Update account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', root_path %>

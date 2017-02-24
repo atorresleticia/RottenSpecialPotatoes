@@ -1,0 +1,47 @@
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, {:autocomplete =>"off"} %>
+      <% if @user.errors.has_key? :name %>
+        <div class="error_message">
+          <%= @user.errors[:name].first %>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, {:autocomplete =>"off"} %>
+    <% if @user.errors.has_key? :email %>
+        <div class="error_message">
+          <%= @user.errors[:email].first %>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, {:autocomplete =>"off"} %>
+    <% if @user.errors.has_key? :password %>
+        <div class="error_message">
+          <%= @user.errors[:password].first %>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, {:autocomplete =>"off"} %>
+    <% if @user.errors.has_key? :password_confirmation %>
+        <div class="error_message">
+          <%= @user.errors[:password_confirmation].first %>
+        </div>
+      <% end %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

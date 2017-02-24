@@ -1,0 +1,45 @@
+<% provide(:title, 'Add movie') %>
+
+<h1>New Movie</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  	<%= form_for @movie do |f| %>
+
+	  <div class="field">
+	    <%= f.label :name %><br>
+	    <%= f.text_field :name %>
+	    <%= error_tag @movie, :name %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :rating %><br>
+	    <%= f.number_field :rating %>
+	    <%= error_tag @movie, :rating %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :release_date %><br>
+	    <%= f.date_select :release_date, start_year: Date.today.year - 200, end_year: Date.today.year %>
+	    <%= error_tag @movie, :release_date %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :description %><br>
+	    <%= f.text_area :description %>
+	    <%= error_tag @movie, :description %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :user_id %><br>
+	    <%= f.number_field :user_id %>
+	    <%= error_tag @movie, :user_id %>
+	  </div>
+	  
+	  <%= f.submit "Add movie", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= link_to 'Back', movies_path %>
